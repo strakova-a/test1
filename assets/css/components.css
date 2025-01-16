@@ -1,0 +1,289 @@
+/* components.css */
+
+/* Buttons */
+.button {
+    --btn-height: 56px;
+    position: relative;
+    height: var(--btn-height);
+    padding: 0 var(--spacing-xl);
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all var(--transition-base);
+}
+
+.button-primary {
+    background: var(--color-text-primary);
+    color: var(--color-light);
+}
+
+.button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    z-index: 1;
+}
+
+.button-primary:hover::before {
+    transform: translateX(0);
+}
+
+.button span {
+    position: relative;
+    z-index: 2;
+}
+
+.button-outline {
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+.button-outline:hover {
+    background: var(--color-text-primary);
+    color: var(--color-light);
+}
+
+/* Cards */
+.premium-card {
+    background: var(--color-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-image {
+    position: relative;
+    padding-bottom: 75%;
+    overflow: hidden;
+}
+
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card-content {
+    padding: var(--spacing-xl);
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.badge-primary {
+    background: var(--color-accent);
+    color: var(--color-light);
+}
+
+.badge-outline {
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+/* Form Elements */
+.input-group {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-input {
+    width: 100%;
+    height: 56px;
+    padding: 0 var(--spacing-md);
+    border: 1px solid var(--color-beige);
+    border-radius: var(--radius-md);
+    background: var(--color-light);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-base);
+}
+
+.form-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.form-label {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+    pointer-events: none;
+    background: var(--color-light);
+    padding: 0 var(--spacing-xs);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-accent);
+}
+
+/* Loaders */
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-beige);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-text-primary);
+    color: var(--color-light);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+}
+
+.tooltip:hover .tooltip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+/* Dividers */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-beige),
+        transparent
+    );
+    margin: var(--spacing-2xl) 0;
+}
+
+/* Tags */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-cream);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+.tag-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-xs);
+}
+
+/* Price Cards */
+.price-card {
+    background: var(--color-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.price-amount {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-4xl);
+    color: var(--color-accent);
+    margin: var(--spacing-md) 0;
+}
+
+/* Image Overlays */
+.overlay-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-xl);
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        transparent
+    );
+    color: var(--color-light);
+    transform: translateY(100%);
+    transition: transform var(--transition-base);
+}
+
+.overlay-card:hover .overlay-content {
+    transform: translateY(0);
+}
+
+/* Social Links */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-beige);
+    color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+.social-link:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-light);
+}
